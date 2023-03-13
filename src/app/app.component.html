@@ -1,0 +1,14 @@
+App components with router works
+
+<router-outlet></router-outlet>
+
+
+<button (click)="loadMovies()">Load movies</button>
+
+<br>
+
+loading {{ loading$ | async | json}}
+
+<br>
+
+<p *ngFor="let movie of movies$ | async"> {{movie.id}} - {{ movie.title}} </p>
