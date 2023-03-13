@@ -1,11 +1,14 @@
+import { createEntityAdapter, EntityState } from '@ngrx/entity';
 import { createReducer, on } from '@ngrx/store';
+import { MovieModel } from 'src/app/_core/models/movie.model';
 import { MoviesState } from 'src/app/_core/models/moviesState';
 import { MoviesActions, MoviesApiActions } from '../actions/movies.actions';
 
-export const initialState:  MoviesState = {
-    loading: false,
-    movies: []
-}
+export const moviesAdapter = createEntityAdapter<MovieModel>();
+
+export const initialState:  MoviesState = moviesAdapter.getInitialState({
+    loading: false
+});
 
 export const moviesReducer = createReducer(
     initialState,
@@ -14,9 +17,11 @@ export const moviesReducer = createReducer(
             return { ...state, loading: true}
         }
     ),
-    on(MoviesApiActions.moviesLoadedSuccess, (state, {movies}) =>
-        {
-            return { ...state, loading: false, movies}
-        }
+    on(MoviesApiActions.moviesLoadedSuccess, (state, {movies}) => {
+        return moviesAdapter.setAll(movies, state)
+    }
+        
     ),
 );
+
+//NGRX ENTITY = https://www.youtube.com/watch?v=3m3GEutSm-s

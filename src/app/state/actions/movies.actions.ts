@@ -12,6 +12,6 @@ export const MoviesActions = createActionGroup({
 export const MoviesApiActions = createActionGroup({
   source: 'Movies API',
   events: {
-    'Movies Loaded Success': props<{ movies: ReadonlyArray<MovieModel> }>(),
+    'Movies Loaded Success': props<{ movies: MovieModel[] }>(),
   },
 });
