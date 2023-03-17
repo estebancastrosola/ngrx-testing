@@ -1,6 +1,6 @@
 App components with router works
 
-<router-outlet></router-outlet>
+
 
 
 <button (click)="loadMovies()">Load movies</button>
@@ -26,4 +26,16 @@ loading {{ loading$ | async | json}}
 <div>
     <h3 data-test="titleInput">{{titleInputs}}</h3>
     <input data-test="basic-input" type="text" [(ngModel)]='basicInputValue' > <button data-test="buttonInput" (click)="changeTitle()">Change title</button> <button (click)="resetTitle()">Reset title</button>
+</div>
+
+<div>
+
+    <h2>LINKS</h2>
+    <a data-test="page1Link" (click)="goToPage1()">Page 1</a>
+</div>
+
+
+<div>
+    <h1>ROUTER</h1>
+    <router-outlet></router-outlet>
 </div>

@@ -8,7 +8,7 @@ describe('Inputs tests',()=>{
         cy.visit('http://localhost:4200');
     })
 
-    it('Write an input',()=>{
+    it.only('Write an input',()=>{
         cy.getBySel('basic-input').as('basicInput')
         cy.get('@basicInput').type('New text');
         cy.get('@basicInput').should('have.value', 'New text')

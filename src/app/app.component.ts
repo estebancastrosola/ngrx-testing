@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
 import { MoviesActions } from '../app/state/actions/movies.actions'
@@ -20,7 +21,7 @@ export class AppComponent implements OnInit {
   loading$: Observable<boolean>| null = null;
   movies$: Observable<readonly MovieModel[]>| null = null;
 
-  constructor(private store: Store<any>){
+  constructor(private store: Store<any>, public router: Router){
 
   }
 
@@ -43,5 +44,9 @@ export class AppComponent implements OnInit {
 
   resetTitle(){
     this.titleInputs = this.titleInputsDefault
+  }
+
+  goToPage1(){
+    this.router.navigate(['/page1'])
   }
 }

@@ -9,10 +9,12 @@ import { EffectsModule } from '@ngrx/effects';
 import { ROOT_REDUCERS } from './state/app.state';
 import { MoviesEffects } from './state/effects/movies.effects';
 import { FormsModule } from '@angular/forms';
+import { Page1Component } from './page1/page1.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    Page1Component
   ],
   imports: [
     BrowserModule,
