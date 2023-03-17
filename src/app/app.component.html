@@ -12,3 +12,18 @@ loading {{ loading$ | async | json}}
 <br>
 
 <p *ngFor="let movie of movies$ | async"> {{movie.id}} - {{ movie.title}} </p>
+
+
+<div style="margin-top: 30px">
+    <button data-test="disabled-button" disabled>Disabled button</button>
+    <button data-test="display-none-button" style="display: none;">Disaplay none button</button>
+    <button data-test="opacity-0-button" style="opacity: 0;">Opacity 0 button</button>
+    <button data-test="clickable-button">Clickable button</button>
+    <button data-test="hide-when-clicked-button" (click)="hideMe($event)">Hiden when clicked button</button>
+</div>
+
+
+<div>
+    <h3 data-test="titleInput">{{titleInputs}}</h3>
+    <input data-test="basic-input" type="text" [(ngModel)]='basicInputValue' > <button data-test="buttonInput" (click)="changeTitle()">Change title</button> <button (click)="resetTitle()">Reset title</button>
+</div>

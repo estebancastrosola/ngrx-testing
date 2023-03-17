@@ -13,6 +13,10 @@ import { MovieModel } from './_core/models/movie.model';
 export class AppComponent implements OnInit {
   title = 'ngrx-testing';
 
+  titleInputsDefault = 'Default text'
+  titleInputs = 'Default text'
+  basicInputValue = '';
+
   loading$: Observable<boolean>| null = null;
   movies$: Observable<readonly MovieModel[]>| null = null;
 
@@ -27,5 +31,17 @@ export class AppComponent implements OnInit {
 
   loadMovies(){
     this.store.dispatch(MoviesActions.loadMovies())
+  }
+
+  hideMe(event:any){
+    event.target.hidden = true;
+  }
+
+  changeTitle(){
+    this.titleInputs = this.basicInputValue;
+  }
+
+  resetTitle(){
+    this.titleInputs = this.titleInputsDefault
   }
 }

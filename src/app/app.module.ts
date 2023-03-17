@@ -8,6 +8,7 @@ import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { EffectsModule } from '@ngrx/effects';
 import { ROOT_REDUCERS } from './state/app.state';
 import { MoviesEffects } from './state/effects/movies.effects';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { MoviesEffects } from './state/effects/movies.effects';
     AppRoutingModule,
     StoreModule.forRoot(ROOT_REDUCERS),
     StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: !isDevMode() }),
-    EffectsModule.forRoot([MoviesEffects])
+    EffectsModule.forRoot([MoviesEffects]),
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
