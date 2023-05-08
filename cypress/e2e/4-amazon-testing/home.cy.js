@@ -44,12 +44,13 @@ describe('Amazon Basic e2e testing', ()=>{
     })
 
 
-    it('If I search some product, te page should show the results page', ()=>{
+    it.only('If I search some product, te page should show the results page', ()=>{
         cy.get('#twotabsearchtextbox').as('searcherInput')
         cy.get('@searcherInput').type('Diablo 3 switch')
+        cy.get('@searcherInput').type('{enter}')
 
-        cy.get('#nav-search-submit-button').as('searcherButton')
-        cy.get('@searcherButton').click()
+        //cy.get('#nav-search-submit-button').as('searcherButton')
+        //cy.get('@searcherButton').click()
 
         cy.contains('resultados para \"Diablo 3 switch\"')
     })
